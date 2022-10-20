@@ -8,8 +8,7 @@ export default defineConfig({
       // implement node event listeners here
     },
     baseUrl: "http://localhost:4200",
-    specPattern: "**/*.{js,jsx,ts,tsx}",
+    specPattern: "**/*.cy.{js,jsx,ts,tsx}",
     excludeSpecPattern: ["**/1-getting-started/*", "**/2-advanced-examples/*"],
-
   },
 });
