@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
 describe("Suit", () => {
-
   it("finding elements", () => {
     cy.visit("/"); // slash / because we defined baseUrl in config file
     cy.contains("Forms").click();
@@ -36,6 +35,26 @@ describe("Suit", () => {
     cy.get('input[placeholder="Email"]#inputEmail1.input-full-width');
 
     // the most recommended way by cypress
-    cy.get('[data-cy="imputEmail1"]')
+    cy.get('[data-cy="imputEmail1"]');
+  });
+
+  it("Second one", () => {
+    cy.visit("/"); // slash / because we defined baseUrl in config file
+    cy.contains("Forms").click();
+    cy.contains("Form Layouts").click();
+
+    cy.get('[data-cy="signInButton"]');
+
+    cy.contains("Sign in");
+
+    cy.contains('[status="warning"]', "Sign in");
+
+    cy.get("#inputEmail3")
+      .parents("form")
+      .find("button")
+      .should("contain", "Sign in")
+      .parents("form")
+      .find("nb-checkbox")
+      .click();
   });
 });
