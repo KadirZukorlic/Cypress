@@ -281,10 +281,24 @@ describe("Suit", () => {
       });
 
     // 3
-    cy.get('thead [placeholder="Age"]').type("20");
-    cy.wait(500);
-    cy.get("tbody tr").each((tableRow) => {
-      cy.wrap(tableRow).find("td").eq(6).should("contain", 20);
+    const age = [20, 30, 40, 200];
+
+    cy.wrap(age).each((age: any) => {
+      cy.get('thead [placeholder="Age"]').clear().type(age);
+      cy.wait(500);
+      cy.get("tbody tr").each((tableRow) => {
+        if (age === 200) {
+          cy.wrap(tableRow).should("contain", "No data found");
+        } else {
+          cy.wrap(tableRow).find("td").eq(6).should("contain", age);
+        }
+      });
     });
+
+    // cy.get('thead [placeholder="Age"]').type("20");
+    // cy.wait(500);
+    // cy.get("tbody tr").each((tableRow) => {
+    //   cy.wrap(tableRow).find("td").eq(6).should("contain", 20);
+    // });
   });
 });
