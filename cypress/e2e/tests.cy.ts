@@ -279,5 +279,12 @@ describe("Suit", () => {
         cy.wrap(tableColumns).eq(2).should("contain", "Kadir");
         cy.wrap(tableColumns).eq(3).should("contain", "Zukorlic");
       });
+
+    // 3
+    cy.get('thead [placeholder="Age"]').type("20");
+    cy.wait(500);
+    cy.get("tbody tr").each((tableRow) => {
+      cy.wrap(tableRow).find("td").eq(6).should("contain", 20);
+    });
   });
 });
