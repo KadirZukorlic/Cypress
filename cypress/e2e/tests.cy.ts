@@ -160,22 +160,6 @@ describe("Suit", () => {
       });
   });
 
-  it("Assert Property", () => {
-    cy.visit("/");
-    cy.contains("Forms").click();
-    cy.contains("Datepicker").click();
-
-    cy.contains("nb-card", "Common Datepicker")
-      .find("input")
-      .then((input) => {
-        cy.wrap(input).click();
-        cy.get("nb-calendar-day-picker").contains("17").click();
-        cy.wrap(input)
-          .invoke("prop", "value")
-          .should("contain", "Oct 17, 2022");
-      });
-  });
-
   it("Radio button", () => {
     cy.visit("/");
     cy.contains("Forms").click();
@@ -247,7 +231,7 @@ describe("Suit", () => {
     });
   });
 
-  it.only("Tables", () => {
+  it("Tables", () => {
     cy.visit("/");
     cy.contains("Tables & Data").click();
     cy.contains("Smart Table").click();
