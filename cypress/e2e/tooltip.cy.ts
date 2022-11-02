@@ -7,7 +7,7 @@ it("Tooltip", () => {
   cy.get("nb-tooltip").should("contain", "This is a tooltip");
 });
 
-it.only("Dialog Boxes", () => {
+it("Dialog Boxes", () => {
   cy.visit("/");
   cy.contains("Tables & Data").click();
   cy.contains("Smart Table").click();
