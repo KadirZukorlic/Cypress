@@ -133,13 +133,16 @@ describe("Suit", () => {
     cy.contains("Form Layouts").click();
 
     // 1
-    cy.get('[for="exampleInputEmail1"]').should("contain", "Email address");
+    cy.get('[for="exampleInputEmail1"]')
+      .should("contain", "Email address")
+      .should("have.class", "label");
 
     // 2
     cy.get('[for="exampleInputEmail1"]').then((inputLabel) => {
       const inputLabelText = inputLabel.text();
 
       expect(inputLabelText).to.equal("Email address");
+      expect(inputLabelText).to.have.class("label");
     });
 
     // 3
