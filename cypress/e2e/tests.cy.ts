@@ -135,14 +135,16 @@ describe("Suit", () => {
     // 1
     cy.get('[for="exampleInputEmail1"]')
       .should("contain", "Email address")
-      .should("have.class", "label");
+      .should("have.class", "label")
+      .and("have.text", "Email address");
 
     // 2
     cy.get('[for="exampleInputEmail1"]').then((inputLabel) => {
       const inputLabelText = inputLabel.text();
 
       expect(inputLabelText).to.equal("Email address");
-      expect(inputLabelText).to.have.class("label");
+      expect(inputLabel).to.have.class("label");
+      expect(inputLabel).to.have.text("Email address");
     });
 
     // 3

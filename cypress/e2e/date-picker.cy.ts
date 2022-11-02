@@ -32,5 +32,6 @@ it("Assert Property", () => {
       cy.wrap(input).click();
       let dateAssert = selectDayFromCurrent(1);
       cy.wrap(input).invoke("prop", "value").should("contain", dateAssert);
+      cy.wrap(input).should("have.value", dateAssert);
     });
 });
