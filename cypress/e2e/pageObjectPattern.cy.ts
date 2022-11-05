@@ -12,4 +12,8 @@ describe("Test with Page Objects", () => {
     navigateTo.tooltipPage();
     navigateTo.toasterPage();
   });
+
+  it("Should submit Inline and Basic form and select tomorrow date in the calender", () => {
+    navigateTo.formLayoutPage()
+  });
 });
