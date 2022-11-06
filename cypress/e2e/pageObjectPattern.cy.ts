@@ -1,3 +1,4 @@
+import { onDatepickerPage } from "../support/page-objects/datePickerPage";
 import { onFormLayoutPage } from "../support/page-objects/formLayoutPage";
 import { navigateTo } from "../support/page-objects/navigationPage";
 
@@ -16,6 +17,12 @@ describe("Test with Page Objects", () => {
 
   it("Should submit Inline and Basic form and select tomorrow date in the calender", () => {
     navigateTo.formLayoutPage();
-    onFormLayoutPage.submitInlineFormWithNameAndEmail('Kadir', 'test@test.com');
+    onFormLayoutPage.submitInlineFormWithNameAndEmail("Kadir", "test@test.com");
+    onFormLayoutPage.submitBasicFormWithEmailAndPassword(
+      "test@test.com",
+      "password123"
+    );
+    navigateTo.datePickerPage();
+    onDatepickerPage.selectCommonDatepickerDateFromToday(1);
   });
 });
