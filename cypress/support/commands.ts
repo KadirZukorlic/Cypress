@@ -38,7 +38,7 @@
 
 declare namespace Cypress {
   interface Chainable {
-    openHomePage: (arg: string) => void;
+    openHomePage: () => void;
   }
 }
 
