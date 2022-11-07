@@ -1,6 +1,7 @@
 import { onDatepickerPage } from "../support/page-objects/datePickerPage";
 import { onFormLayoutPage } from "../support/page-objects/formLayoutPage";
 import { navigateTo } from "../support/page-objects/navigationPage";
+import { onSmartTablePage } from "../support/page-objects/smartTablePage";
 
 describe("Test with Page Objects", () => {
   beforeEach("Open application", () => {
@@ -24,6 +25,10 @@ describe("Test with Page Objects", () => {
     );
     navigateTo.datePickerPage();
     onDatepickerPage.selectCommonDatepickerDateFromToday(1);
-    onDatepickerPage.selectDatepickerWithRangeFromToday(7, 14)
+    onDatepickerPage.selectDatepickerWithRangeFromToday(7, 14);
+    navigateTo.smartTablePage();
+    onSmartTablePage.addNewRecordWithFirstAndLastName("Kadir", "Zukorlic");
+    onSmartTablePage.updateAgeByFirstName("Kadir", "30");
+    onSmartTablePage.deleteRowByIndex(1);
   });
 });
