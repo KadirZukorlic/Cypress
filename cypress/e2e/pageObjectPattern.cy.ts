@@ -15,7 +15,7 @@ describe("Test with Page Objects", () => {
     navigateTo.toasterPage();
   });
 
-  it("Should submit Inline and Basic form and select tomorrow date in the calender", () => {
+  it.only("Should submit Inline and Basic form and select tomorrow date in the calender", () => {
     navigateTo.formLayoutPage();
     onFormLayoutPage.submitInlineFormWithNameAndEmail("Kadir", "test@test.com");
     onFormLayoutPage.submitBasicFormWithEmailAndPassword(
@@ -24,5 +24,6 @@ describe("Test with Page Objects", () => {
     );
     navigateTo.datePickerPage();
     onDatepickerPage.selectCommonDatepickerDateFromToday(1);
+    onDatepickerPage.selectDatepickerWithRangeFromToday(7, 14)
   });
 });
